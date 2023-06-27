@@ -52,13 +52,17 @@ export class Api {
       .then(res => { return this._checkResponse(res); })
   }
 
-  editingProfile(profileData) {
+  editingProfile(profileInfo) {
     return fetch(`${this._baseUrl}users/me`, {
+      method: "PATCH",
       headers: this._headers,
-      method: 'PATCH',
-      body: JSON.stringify({ name: profileData.name, about: profileData.job })
-    })
-      .then(res => { return this._checkResponse(res); })
+      body: JSON.stringify({
+        name: profileInfo["name"],
+        about: profileInfo["profession"],
+      }),
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   deleteCard(cardId) {

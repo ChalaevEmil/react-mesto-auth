@@ -17,7 +17,7 @@ function EditProfilePopup(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.onSubmit({
+    props.onUpdateUser({
       ["name"]: name,
       ["profession"]: description,
     });
